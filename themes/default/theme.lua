@@ -9,7 +9,7 @@ local gfs = require('gears.filesystem')
 
 local dpi = xresources.apply_dpi
 
-local themes_path = gfs.get_configuration_dir() .. '/themes/default/'
+local themes_path = gfs.get_configuration_dir() .. 'themes/default/'
 local layout_path = themes_path .. 'layouts/'
 local titlebar_path = themes_path .. 'titlebar/'
 
@@ -88,7 +88,7 @@ theme.titlebar_maximized_button_focus_active  = titlebar_path .. 'maximized_focu
 local function fetchFiles(folder)
   local arr = {}
   for v in lfs.dir(folder) do
-    if v ~= '.' and v ~= '..' then
+    if v ~= '.' and v ~= '..' and v ~= 'readme.md' then
         arr[#arr + 1] = v
     end
   end
