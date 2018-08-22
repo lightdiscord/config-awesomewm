@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#! /usr/bin/env nix-shell
+#! nix-shell -i bash -p imagemagick
 
 set -e
 
@@ -6,4 +7,4 @@ rm -rf dist
 
 mkdir dist
 
-nix-shell -p imagemagick --run "convert result/screenshot.png -quality 50% dist/screenshot.jpg"
+convert result/screenshot.png -quality 50% dist/screenshot.jpg
