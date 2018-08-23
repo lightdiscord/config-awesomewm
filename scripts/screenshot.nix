@@ -39,6 +39,8 @@ in import <nixpkgs/nixos/tests/make-test.nix> {
         virtualisation.memorySize = 1 * 1024;
     };
 
+    enableOCR = true;
+
     testScript = with pkgs.lib; let
         inherit (pkgs) callPackage;
 
@@ -65,12 +67,15 @@ in import <nixpkgs/nixos/tests/make-test.nix> {
 
         $machine->succeed("chown -R arnaud:users ~arnaud");
 
-        $machine->sleep(20);
+        $machine->waitForWindow(qr/awesome/);
+        $machine->sleep(5);
 
         $machine->execute("su - arnaud -c \"echo 'awesome.restart()' | awesome-client\"");
         $machine->succeed("su - arnaud -c 'alacritty &'");
 
-        $machine->sleep(45);
+        $machine->waitForWindow(qr/Alacritty/);
+        $machine->waitForText("arnaud");
+        $machine->sleep(5);
 
         $machine->screenshot("screenshot");
     '';
