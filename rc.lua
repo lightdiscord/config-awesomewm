@@ -47,3 +47,21 @@ require('./signals/request/titlebars')
 require('./signals/mouse/enter')
 require('./signals/focus')
 require('./signals/unfocus')
+
+-- local socket = require('socket')
+-- socket.unix = require('socket.unix')
+-- 
+-- server = assert(socket.unix())
+-- assert(server:bind("luasocket"))
+-- assert(server:listen(5))
+-- 
+-- while 1 do
+--     print("server: waiting for client connection...");
+--     control = assert(server:accept());
+--     while 1 do
+--         command = assert(control:receive());
+--         control:send("\n");
+-- 
+--         print(command)
+--     end
+-- end

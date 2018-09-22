@@ -17,16 +17,16 @@ local theme = {}
 
 theme.font          = 'sans 10'
 
-local bg_normal     = '#424242'
-local bg_focus      = '#212121'
+local bg_normal     = '#000000A6'
+local bg_focus      = '#000000CC'
 
 theme.bg_normal     = bg_normal
-theme.bg_focus      = bg_focus
+theme.bg_focus      = bg_normal
 theme.bg_urgent     = '#b71c1c'
-theme.bg_minimize   = '#444444'
+theme.bg_minimize   = bg_normal
 theme.bg_systray    = bg_normal
 
-local fg_normal     = '#aaaaaa'
+local fg_normal     = '#ffffff'
 local fg_focus      = '#ffffff'
 
 theme.fg_normal     = fg_normal

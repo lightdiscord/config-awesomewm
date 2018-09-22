@@ -6,12 +6,28 @@ let
 in {
     landscape = imap0 (_: fetchurl) [
         {
-            url = https://images.wallpaperscraft.com/image/akio_bako_anime_sunset_girl_clouds_103086_3840x2160.jpg;
-            sha256 = "01gh8mhwn39hng9vdfmlp0q8qygysxfclj0br5199dmrr88apn24";
+            url = https://i.imgur.com/OHnTIjd.png;
+            sha256 = "14zk41fa7l8gr5ycd000dgdw9ypfkz7rsnn76dfcbnqbdi0qqrh4";
         }
         {
-            url = https://images.wallpaperscraft.com/image/girls_und_panzer_nishizumi_miho_tank_hill_girl_100910_3840x2160.jpg;
-            sha256 = "0m6gj65qvzhszn3w3pkmpjvx29s4w0jcigzq2cc2f2cmx03fz8f6";
+            url = https://i.imgur.com/k6jnefv.jpg;
+            sha256 = "1dzn7chvwkr7dfwqd98nv6psgdv7b10r4x2wwjyvbhnijbz97rpk";
+        }
+        {
+            url = https://i.imgur.com/boZVbVu.jpg;
+            sha256 = "0axxvdj4aqscrxgwsvhh9vrlgqb9cfpkv1d5ykg6p8ial4f1pp4a";
+        }
+        {
+            url = https://i.imgur.com/BJAlaDI.png;
+            sha256 = "18y93b8p271ymqsgcxm5idc05prbhpbd2zkdjvh7j91jchm4jwrn";
+        }
+        {
+            url = https://i.imgur.com/prgm2D2.png;
+            sha256 = "1fsq6hgcxkx76aqdjcwl46x14d48kzdrg12jgzkiv4v7hdgb1g8g";
+        }
+        {
+            url = https://i.imgur.com/60dZQtA.png;
+            sha256 = "0vyqfzr85kbrkkvyq3ar8gaw2nvs0dglqisqybcfrs2lkaaq028x";
         }
     ];
 

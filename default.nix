@@ -7,8 +7,9 @@ with lib;
         enable = true;
         windowManager.awesome = {
             enable = true;
-            luaModules = with pkgs; [
-                luaPackages.lfs
+            luaModules = with pkgs.luaPackages; [
+                lfs
+                luasocket
             ];
         };
     };
