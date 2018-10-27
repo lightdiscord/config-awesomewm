@@ -1,10 +1,7 @@
-{ pkgs, ... }:
+{ fetchurl }:
 
-let
-    inherit (pkgs) fetchurl;
-    inherit (pkgs.lib) imap0;
-in {
-    landscape = imap0 (_: fetchurl) [
+{
+    landscape = map fetchurl [
         {
             url = https://i.imgur.com/OHnTIjd.png;
             sha256 = "14zk41fa7l8gr5ycd000dgdw9ypfkz7rsnn76dfcbnqbdi0qqrh4";
@@ -31,7 +28,7 @@ in {
         }
     ];
 
-    portrait = imap0 (_: fetchurl) [
+    portrait = map fetchurl [
         {
             url = https://images.wallpaperscraft.com/image/mountains_peaks_sky_125630_2160x3840.jpg;
             sha256 = "0igk20lxkslvj931lf6qcvb3pqdazqmz46p17vx4ljb4563fqppy";
