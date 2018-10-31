@@ -1,15 +1,15 @@
+sudo: required
+
 language: nix
 
 script:
-  - nix-build ./scripts/screenshot.nix
-  - ./scripts/images.sh
+  - nix-build ./nix/screenshot
 
 deploy:
   provider: pages
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
-  target-branch: screenshots
-  local-dir: dist
+  local-dir: result
   on:
     branch:
       - master
