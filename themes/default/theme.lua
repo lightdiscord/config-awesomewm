@@ -98,35 +98,26 @@ end
 theme.wallpaper = function(screen)
     math.randomseed(os.time())
 
-    local orientation = screen.geometry.width > screen.geometry.height 
-        and 'landscape' 
+    local orientation = screen.geometry.width > screen.geometry.height
+        and 'landscape'
         or 'portrait'
 
     local path = themes_path .. 'wallpapers/' .. orientation .. '/'
-    
+
 
     local files = fetchFiles(path)
     local file = path .. files[math.random(#files)]
 
     return file
-end 
+end
 
-theme.layout_fairh = layout_path .. 'fairhw.png'
-theme.layout_fairv = layout_path .. 'fairvw.png'
-theme.layout_floating  = layout_path .. 'floatingw.png'
-theme.layout_magnifier = layout_path .. 'magnifierw.png'
-theme.layout_max = layout_path .. 'maxw.png'
-theme.layout_fullscreen = layout_path .. 'fullscreenw.png'
-theme.layout_tilebottom = layout_path .. 'tilebottomw.png'
-theme.layout_tileleft   = layout_path .. 'tileleftw.png'
 theme.layout_tile = layout_path .. 'tilew.png'
-theme.layout_tiletop = layout_path .. 'tiletopw.png'
-theme.layout_spiral  = layout_path .. 'spiralw.png'
+theme.layout_floating  = layout_path .. 'floatingw.png'
+theme.layout_fairv = layout_path .. 'fairvw.png'
 theme.layout_dwindle = layout_path .. 'dwindlew.png'
-theme.layout_cornernw = layout_path .. 'cornernww.png'
-theme.layout_cornerne = layout_path .. 'cornernew.png'
-theme.layout_cornersw = layout_path .. 'cornersww.png'
-theme.layout_cornerse = layout_path .. 'cornersew.png'
+theme.layout_max = layout_path .. 'maxw.png'
+theme.layout_magnifier = layout_path .. 'magnifierw.png'
+theme.layout_fullscreen = layout_path .. 'fullscreenw.png'
 
 theme.awesome_icon = theme_assets.awesome_icon(theme.menu_height, bg_focus, fg_focus)
 theme.icon_theme = nil
