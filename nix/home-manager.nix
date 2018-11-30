@@ -1,10 +1,16 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
-{
-    xsession.windowManager.awesome = {
-        enable = config.xsession.enable;
-        luaModules = import ./modules.nix { inherit pkgs; };
-    };
+with lib;
 
-    home.file.".config/awesome".source = pkgs.callPackage ./package.nix { };
+let
+		awesome = config.xsession.windowManager.awesome.enable;
+		xsession = config.xsession.enable;
+in {
+		config = mkIf (awesome && xsession) {
+				home.file.".config/awesome".source = pkgs.callPackage ./package.nix { };
+
+				xsession.windowManager.awesome = {
+						luaModules = import ./modules.nix { inherit pkgs; };
+				};
+		};
 }

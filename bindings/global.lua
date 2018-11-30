@@ -16,7 +16,7 @@ local modkey = settings.modkey
 local function infos(description, group) return {description=description, group=group} end
 
 -- Focus another application
-local function focus(x) 
+local function focus(x)
     return function () awful.client.focus.byidx(x) end
 end
 
@@ -42,7 +42,7 @@ local function last_focused()
 end
 
 -- Spawn an application
-local function spawn(application) 
+local function spawn(application)
     return function () awful.spawn(application) end
 end
 
@@ -54,7 +54,7 @@ end
 -- Restore a minimized client
 local function restore_minimized()
     local c = awful.client.restore()
-    
+
     if c then
         client.focus = c
         c:raise()
@@ -159,13 +159,13 @@ for i = 1, 9 do
     globalkeys = gears.table.join(globalkeys,
         -- View tag only.
         awful.key({ modkey }, '#' .. i + 9, view_tag(i), infos('view tag #' .. i, 'tag')),
-    
+
         -- Toggle tag display.
         awful.key({ modkey, 'Control' }, '#' .. i + 9,
             toggle_tag(i), infos('toggle tag #' .. i, 'tag')),
 
         -- Move client to tag.
-        awful.key({ modkey, 'Shift' }, '#' .. i + 9, 
+        awful.key({ modkey, 'Shift' }, '#' .. i + 9,
             move_to_tag(i), infos('move focused client to tag #' .. i, 'tag')),
 
         -- Toggle tag on focused client.
