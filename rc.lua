@@ -9,22 +9,22 @@ require('awful.autofocus')
 require('awful.hotkeys_popup.keys')
 
 if awesome.startup_errors then
-    notify_error('Oops, there were errors during startup!', awesome.startup_errors)
+	notify_error('Oops, there were errors during startup!', awesome.startup_errors)
 end
 
 do
-    require('./signals/debug/error')
+	require('./signals/debug/error')
 end
 
 beautiful.init(awful.util.getdir('config') .. '/themes/default/theme.lua')
 
 awful.layout.layouts = {
-    awful.layout.suit.tile,
-    awful.layout.suit.floating,
-    awful.layout.suit.fair,
-    awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.max,
-		awful.layout.suit.magnifier,
+	awful.layout.suit.tile,
+	awful.layout.suit.floating,
+	awful.layout.suit.fair,
+	awful.layout.suit.spiral.dwindle,
+	awful.layout.suit.max,
+	awful.layout.suit.magnifier,
 }
 
 menubar.utils.terminal = settings.terminal

@@ -86,29 +86,33 @@ theme.titlebar_maximized_button_normal_active = titlebar_path .. 'maximized_norm
 theme.titlebar_maximized_button_focus_active  = titlebar_path .. 'maximized_focus_active.png'
 
 local function fetchFiles(folder)
-  local arr = {}
+	local arr = {}
+
   for v in lfs.dir(folder) do
-    if v ~= '.' and v ~= '..' and v ~= 'readme.md' then
-        arr[#arr + 1] = v
-    end
-  end
+		if v ~= '.' and v ~= '..' and v ~= 'readme.md' then
+			arr[#arr + 1] = v
+		end
+	end
+
   return arr
 end
 
 theme.wallpaper = function(screen)
-    math.randomseed(os.time())
+	math.randomseed(os.time())
 
-    local orientation = screen.geometry.width > screen.geometry.height
-        and 'landscape'
-        or 'portrait'
+	local orientation = screen.geometry.width > screen.geometry.height
+		and 'landscape'
+		or 'portrait'
 
-    local path = themes_path .. 'wallpapers/' .. orientation .. '/'
+	local path = themes_path .. 'wallpapers/' .. orientation .. '/'
 
+	local files = fetchFiles(path)
 
-    local files = fetchFiles(path)
-    local file = path .. files[math.random(#files)]
-
-    return file
+	if #files == 0 then
+		return nil
+	else
+		return path .. files[math.random(#files)]
+	end
 end
 
 theme.layout_tile = layout_path .. 'tilew.png'

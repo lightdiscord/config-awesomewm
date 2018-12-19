@@ -3,28 +3,26 @@
 with lib;
 
 let
-    wallpapers = import ./wallpapers.nix { inherit fetchurl; };
+	wallpapers = import ./wallpapers.nix { inherit fetchurl; };
 
-    lines = concatStringsSep "\n";
-    link = orientation: wallpaper: "ln -s ${wallpaper} $out/themes/default/wallpapers/${orientation}";
+	lines = concatStringsSep "\n";
+	link = orientation: wallpaper: "ln -s ${wallpaper} $out/themes/default/wallpapers/${orientation}";
 
-		src = sourceFilesBySuffices ../. ["lua" "png"];
+	src = sourceFilesBySuffices ../. ["lua" "png"];
 
 in stdenv.mkDerivation {
-    name = "awesome-config";
+	name = "awesome-config";
 
-		inherit src;
+	installPhase = ''
+		mkdir -p $out
 
-    installPhase = ''
-        mkdir -p $out
+		cp -ra $src/. $out
+		chmod -R u+w $out
+		mkdir -p $out/themes/default/wallpapers/{landscape,portrait}
 
-				cp -ra $src/. $out
+		${ lines (map (link "landscape") wallpapers.landscape) }
+		${ lines (map (link "portrait") wallpapers.portrait) }
+	'';
 
-				chmod -R u+w $out
-
-        mkdir -p $out/themes/default/wallpapers/{landscape,portrait}
-
-        ${ lines (map (link "landscape") wallpapers.landscape) }
-        ${ lines (map (link "portrait") wallpapers.portrait) }
-    '';
+	inherit src;
 }
