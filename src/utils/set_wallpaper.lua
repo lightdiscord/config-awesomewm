@@ -1,5 +1,5 @@
-local gears = require('gears')
-local beautiful = require('beautiful')
+local gears = require "gears"
+local beautiful = require "beautiful"
 
 local function set_wallpaper(s)
 	if not beautiful.wallpaper then return end

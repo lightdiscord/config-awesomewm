@@ -1,16 +1,14 @@
-local awful = require('awful')
-local wibox = require('wibox')
-local gears = require('gears')
+local awful = require "awful"
+local wibox = require "wibox"
+local gears = require "gears"
 
-local mylauncher = require('../launcher').mylauncher
-
-local tasklist_buttons = require('../bindings/tasklist_buttons')
-local taglist_buttons = require('../bindings/taglist_buttons')
+local mylauncher = require("src.launcher").mylauncher
+local tasklist_buttons = require "src.bindings.tasklist_buttons"
+local taglist_buttons = require "src.bindings.taglist_buttons"
+local set_wallpaper = require "src.utils.set_wallpaper"
 
 local mytextclock = wibox.widget.textclock()
 local mykeyboardlayout = awful.widget.keyboardlayout()
-
-local set_wallpaper = require('./utils/set_wallpaper')
 
 local function layoutinc(n)
 	return function () awful.layout.inc(n) end
@@ -20,7 +18,7 @@ local function connect(s)
 	set_wallpaper(s)
 
 	awful.tag({
-		'1', '2', '3', '4', '5', '6', '7', '8', '9'
+		"1", "2", "3", "4", "5", "6", "7", "8", "9"
 	}, s, awful.layout.layouts[1])
 
 	local buttons = gears.table.join(
@@ -35,7 +33,7 @@ local function connect(s)
 	s.mylayoutbox:buttons(buttons)
 	s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, taglist_buttons)
 	s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
-	s.mywibox = awful.wibar({ position = 'top', screen = s })
+	s.mywibox = awful.wibar({ position = "top", screen = s })
 
 	s.mywibox:setup {
 		layout = wibox.layout.align.horizontal,

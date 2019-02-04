@@ -1,7 +1,7 @@
-local gears = require('gears')
-local awful = require('awful')
+local gears = require "gears"
+local awful = require "awful"
 
-local modkey = require('../settings').modkey
+local modkey = require("src.settings").modkey
 
 local function focus(c)
 	client.focus = c

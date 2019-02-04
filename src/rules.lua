@@ -1,8 +1,7 @@
-local beautiful = require('beautiful')
-local awful = require('awful')
-
-local clientkeys = require('./bindings/clientkeys')
-local clientbuttons = require('./bindings/clientbuttons')
+local beautiful = require "beautiful"
+local awful = require "awful"
+local clientkeys = require "src.bindings.clientkeys"
+local clientbuttons = require "src.bindings.clientbuttons"
 
 local rules = {
 	{
@@ -22,29 +21,29 @@ local rules = {
 	{
 		rule_any = {
 			instance = {
-				'DTA',
-				'copyq',
+				"DTA",
+				"copyq",
 			},
 
 			class = {
-				'Arandr',
-				'Gpick',
-				'Kruler',
-				'MessageWin',
-				'Sxiv',
-				'Wpa_gui',
-				'pinentry',
-				'veromix',
-				'xtightvncviewer'
+				"Arandr",
+				"Gpick",
+				"Kruler",
+				"MessageWin",
+				"Sxiv",
+				"Wpa_gui",
+				"pinentry",
+				"veromix",
+				"xtightvncviewer"
 			},
 
 			name = {
-				'Event Tester',
+				"Event Tester",
 			},
 
 			role = {
-				'AlarmWindow',
-				'pop-up',
+				"AlarmWindow",
+				"pop-up",
 			}
 		},
 
@@ -56,8 +55,8 @@ local rules = {
 	{
 		rule_any = {
 			type = {
-				'normal',
-				'dialog'
+				"normal",
+				"dialog"
 			}
 		},
 		properties = {

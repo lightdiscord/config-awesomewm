@@ -1,4 +1,4 @@
-local awful = require('awful')
+local awful = require "awful"
 
 local function manage(c)
 	local user_position = c.size_hints.user_position
@@ -9,4 +9,4 @@ local function manage(c)
 	end
 end
 
-client.connect_signal('manage', manage)
+client.connect_signal("manage", manage)

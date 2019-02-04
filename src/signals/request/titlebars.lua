@@ -1,6 +1,6 @@
-local gears = require('gears')
-local awful = require('awful')
-local wibox = require('wibox')
+local gears = require "gears"
+local awful = require "awful"
+local wibox = require "wibox"
 
 local function move_button(c)
 	return awful.button({ }, 1, function()
@@ -47,4 +47,4 @@ local function titlebars(c)
 	}
 end
 
-client.connect_signal('request::titlebars', titlebars)
+client.connect_signal("request::titlebars", titlebars)

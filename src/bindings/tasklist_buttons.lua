@@ -1,7 +1,5 @@
-local awful = require('awful')
-local gears = require('gears')
-
-local client_menu_toggle_fn = require('../utils/client_menu_toggle_fn')
+local awful = require "awful"
+local gears = require "gears"
 
 local function toggle(c)
 	if c == client.focus then
@@ -24,7 +22,7 @@ end
 
 local tasklist_buttons = gears.table.join(
 	awful.button({ }, 1, toggle),
-	awful.button({ }, 3, client_menu_toggle_fn()),
+	awful.button({ }, 3, require("src.utils.client_menu_toggle_fn")()),
 	awful.button({ }, 4, focus(1)),
 	awful.button({ }, 5, focus(-1))
 )

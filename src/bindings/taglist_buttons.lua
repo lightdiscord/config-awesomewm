@@ -1,7 +1,5 @@
-local awful = require('awful')
-local gears = require('gears')
-
-local modkey = require('../settings').modkey
+local awful = require "awful"
+local gears = require "gears"
 
 local function view(tag)
 	tag:view_only()
@@ -23,7 +21,7 @@ end
 
 local taglist_buttons = gears.table.join(
 	awful.button({ }, 1, view),
-	awful.button({ modkey }, 1, move),
+	awful.button({ require("src.settings").modkey }, 1, move),
 	awful.button({ }, 3, awful.tag.viewtoggle),
 	awful.button({ }, 4, next),
 	awful.button({ }, 5, prev)

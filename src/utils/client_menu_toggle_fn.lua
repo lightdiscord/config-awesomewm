@@ -1,4 +1,4 @@
-local awful = require('awful')
+local awful = require "awful"
 
 local function client_menu_toggle_fn()
 	local instance = nil

@@ -1,4 +1,4 @@
-local awful = require('awful')
+local awful = require "awful"
 
 local function enter(c)
 	local layout = awful.layout.get(c.screen)
@@ -9,4 +9,4 @@ local function enter(c)
 	end
 end
 
-client.connect_signal('mouse::enter', enter)
+client.connect_signal("mouse::enter", enter)
