@@ -1,14 +1,18 @@
-{ lib, stdenv, fetchurl }:
-
-with lib;
-
 let
-	wallpapers = import ./wallpapers.nix { inherit fetchurl; };
+	dependencies = {
+		nixpkgs = import ./dependencies/nixpkgs.nix { };
+	};
 
-	lines = concatStringsSep "\n";
+	inherit (dependencies.nixpkgs) stdenv fetchurl lib;
+
+	wallpapers = import ./wallpapers.nix {
+		inherit fetchurl;
+	};
+
+	lines = lib.concatStringsSep "\n";
 	link = orientation: wallpaper: "ln -s ${wallpaper} $out/themes/default/wallpapers/${orientation}";
 
-	src = sourceFilesBySuffices ../. ["lua" "png"];
+	src = lib.sourceFilesBySuffices ../. ["lua" "png" "test"];
 
 in stdenv.mkDerivation {
 	name = "awesome-config";
@@ -18,6 +22,7 @@ in stdenv.mkDerivation {
 
 		cp -ra $src/. $out
 		chmod -R u+w $out
+
 		mkdir -p $out/themes/default/wallpapers/{landscape,portrait}
 
 		${ lines (map (link "landscape") wallpapers.landscape) }
