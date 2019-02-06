@@ -1,3 +1,1 @@
-print "test"
-
 require "src"

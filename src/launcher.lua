@@ -13,7 +13,11 @@ module.myawesomemenu = {
 
 module.mymainmenu = awful.menu({ items = {
 	{ "awesome", module.myawesomemenu },
-	{ "open terminal", terminal }
+	{ "reload wallpaper", function()
+		local screen = awful.screen.focused()
+
+		require("src.utils.set_wallpaper")(screen)
+	end}
 }})
 
 module.mylauncher = awful.widget.launcher({

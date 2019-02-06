@@ -97,8 +97,6 @@ local function fetchFiles(folder)
 end
 
 theme.wallpaper = function(screen)
-	math.randomseed(os.time())
-
 	local orientation = screen.geometry.width > screen.geometry.height
 		and "landscape"
 		or "portrait"

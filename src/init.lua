@@ -1,3 +1,5 @@
+math.randomseed(os.time())
+
 local awful = require "awful"
 local beautiful = require "beautiful"
 local menubar = require "menubar"
@@ -37,6 +39,6 @@ awful.rules.rules = require "src.rules"
 require "src.signals.property.geometry"
 require "src.signals.manage"
 require "src.signals.request.titlebars"
-require "src.signals.mouse/enter"
+require "src.signals.mouse.enter"
 require "src.signals.focus"
 require "src.signals.unfocus"
