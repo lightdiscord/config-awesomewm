@@ -1,1 +1,3 @@
-require "src.index"
+print "test"
+
+require "src"

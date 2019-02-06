@@ -10,5 +10,5 @@ SEARCH_PATH=`echo $SEARCH_PATH | cut -d'"' -f2`
 
 nix build -f ./nix/configuration.nix
 
-echo "Xephyr -br -ac -noreset -screen 1664x936 :1" | nix run nixpkgs.xorg.xorgserver &
-echo "DISPLAY=:1 awesome -c $CONFIG/rc.lua $SEARCH_PATH" | nix run nixpkgs.awesome
+Xephyr -br -ac -noreset -screen 1664x936 :1 &
+DISPLAY=:1 awesome -c $CONFIG/rc.lua $SEARCH_PATH --search $CONFIG
