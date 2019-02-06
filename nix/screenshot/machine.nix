@@ -11,9 +11,9 @@ import <nixpkgs/nixos/tests/make-test.nix> {
 			packages = [];
 		};
 
-		environment.extraInit = let awesome = pkgs.callPackage ../package.nix {}; in ''
+		environment.extraInit = ''
 			mkdir -p ~arnaud/.config
-			ln -s ${awesome} ~arnaud/.config/awesome
+			ln -s ${../configuration.nix} ~arnaud/.config/awesome
 		'';
 
 		services.xserver = let resolution = { x = 1920; y = 1080; }; in {

@@ -7,7 +7,7 @@ let
 	xsession = config.xsession.enable;
 in {
 	config = mkIf (awesome && xsession) {
-		home.file.".config/awesome".source = pkgs.callPackage ./package.nix { };
+		home.file.".config/awesome".source = ./configuration.nix;
 
 		xsession.windowManager.awesome.luaModules = import ./modules.nix { inherit pkgs; };
 	};
