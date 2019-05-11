@@ -5,9 +5,7 @@ let
 
 	inherit (dependencies.nixpkgs) stdenv fetchurl lib;
 
-	wallpapers = import ./wallpapers.nix {
-		inherit fetchurl;
-	};
+	wallpapers = import ./wallpapers.nix;
 
 	lines = lib.concatStringsSep "\n";
 	link = orientation: wallpaper: "ln -s ${wallpaper} $out/themes/default/wallpapers/${orientation}";
