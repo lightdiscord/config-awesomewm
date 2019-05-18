@@ -10,5 +10,5 @@ SEARCH_PATH=`echo $SEARCH_PATH | cut -d'"' -f2`
 
 nix build -f ./nix/configuration.nix
 
-Xephyr -br -ac -noreset -screen 1664x936 :1 &
-DISPLAY=:1 awesome -c $CONFIG/rc.lua $SEARCH_PATH --search $CONFIG
+Xephyr -br -ac -noreset -screen 1664x936 :20 &
+DISPLAY=:20 awesome -c $CONFIG/rc.lua $SEARCH_PATH --search $CONFIG

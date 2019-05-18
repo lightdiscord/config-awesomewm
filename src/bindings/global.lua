@@ -7,6 +7,7 @@ local hotkeys_popup = require("awful.hotkeys_popup").widget
 local menubar = require "menubar"
 local settings = require "src.settings"
 local mymainmenu = require("src.launcher").mymainmenu
+local createworkspace = require "src.utils.workspaces.create"
 
 local modkey = settings.modkey
 
@@ -122,6 +123,13 @@ local globalkeys = gears.table.join(
 	awful.key({ modkey }, "k", focus(-1), infos("focus previous by index", "client")),
 
 	awful.key({ modkey }, "w", show_menu, infos("show main menu", "awesome")),
+	awful.key(
+		{ modkey }, "KP_Add",
+		function()
+			createworkspace(awful.screen.focused())
+		end,
+		infos("create a new workspace", "screen")
+	),
 
 	-- Layout manipulation
 	awful.key({ modkey, "Shift" }, "j", swap(1), infos("swap with next client by index", "client")),
@@ -150,29 +158,4 @@ local globalkeys = gears.table.join(
 	awful.key({ modkey, "Shift" }, "p", menubar.refresh, infos("show the menubar", "launcher"))
 )
 
--- ### Bind all key numbers to tags.
-
--- Be careful: we use keycodes to make it work on any keyboard layout.
--- This should map on the top row of your keyboard, usually 1 to 9.
-
-for i = 1, 9 do
-	globalkeys = gears.table.join(globalkeys,
-		-- View tag only.
-		awful.key({ modkey }, "#" .. i + 9, view_tag(i), infos("view tag #" .. i, "tag")),
-
-		-- Toggle tag display.
-		awful.key({ modkey, "Control" }, "#" .. i + 9,
-			toggle_tag(i), infos("toggle tag #" .. i, "tag")),
-
-		-- Move client to tag.
-		awful.key({ modkey, "Shift" }, "#" .. i + 9,
-			move_to_tag(i), infos("move focused client to tag #" .. i, "tag")),
-
-		-- Toggle tag on focused client.
-		awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
-			toggle_client_tag(i), infos("toggle focused client on tag #" .. i, "tag"))
-	)
-end
-
--- Return keys
 return globalkeys

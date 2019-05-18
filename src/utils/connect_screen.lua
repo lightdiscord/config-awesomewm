@@ -17,9 +17,7 @@ end
 local function connect(s)
 	set_wallpaper(s)
 
-	awful.tag({
-		"1", "2", "3", "4", "5", "6", "7", "8", "9"
-	}, s, awful.layout.layouts[1])
+	awful.tag({"1"}, s, awful.layout.layouts[1])
 
 	local buttons = gears.table.join(
 		awful.button({ }, 1, layoutinc(1)),
@@ -31,6 +29,7 @@ local function connect(s)
 	s.mypromptbox = awful.widget.prompt()
 	s.mylayoutbox = awful.widget.layoutbox(s)
 	s.mylayoutbox:buttons(buttons)
+	s.mynewworkspace = require "src.widgets.create_workspace"
 	s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, taglist_buttons)
 	s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
 	s.mywibox = awful.wibar({ position = "top", screen = s })
@@ -41,6 +40,7 @@ local function connect(s)
 			layout = wibox.layout.fixed.horizontal,
 			mylauncher,
 			s.mytaglist,
+			s.mynewworkspace,
 			s.mypromptbox,
 		},
 		s.mytasklist,

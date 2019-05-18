@@ -1,5 +1,7 @@
 local gears = require "gears"
 local awful = require "awful"
+local gmath = require "gears.math"
+local createworkspace = require "src.utils.workspaces.create"
 
 local modkey = require("src.settings").modkey
 
@@ -46,6 +48,14 @@ local function toggle_maximize(vertical, horizontal)
 	end
 end
 
+local function move_to_relative_tag(i)
+	return function(c)
+		local s = c.screen
+
+		c:move_to_tag(s.tags[gmath.cycle(#s.tags, s.selected_tag.index + i)])
+	end
+end
+
 local clientkeys = gears.table.join(
 	awful.key({ modkey }, "f", toggle_fullscreen, infos("toggle fullscreen")),
 	awful.key({ modkey, "Shift" }, "c", close, infos("close")),
@@ -56,7 +66,17 @@ local clientkeys = gears.table.join(
 	awful.key({ modkey }, "n", minimize, infos("minimize")),
 	awful.key({ modkey }, "m", toggle_maximize(true, true), infos("(un)maximize")),
 	awful.key({ modkey, "Control" }, "m", toggle_maximize(true, false), infos("(un)maximize vertically")),
-	awful.key({ modkey, "Shift" }, "m", toggle_maximize(false, true), infos("(un)maximize horizontally"))
+	awful.key({ modkey, "Shift" }, "m", toggle_maximize(false, true), infos("(un)maximize horizontally")),
+	awful.key({ modkey, "Shift" }, "Left", move_to_relative_tag(-1), infos("move client to previous tag", "tag")),
+	awful.key({ modkey, "Shift" }, "Right", move_to_relative_tag(1), infos("move client to next tag", "tag")),
+	awful.key(
+		{ modkey, "Shift" }, "KP_Add",
+		function(c)
+			local t = createworkspace(c.screen)
+			c:move_to_tag(t)
+		end,
+		infos("move client to a new tag", "client")
+	)
 )
 
 return clientkeys
