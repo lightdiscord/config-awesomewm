@@ -1,7 +1,7 @@
 local gears = require "gears"
 local beautiful = require "beautiful"
 
-local function set_wallpaper(s)
+return function (s)
 	if not beautiful.wallpaper then return end
 
 	local wallpaper = beautiful.wallpaper
@@ -14,5 +14,3 @@ local function set_wallpaper(s)
 		gears.wallpaper.maximized(wallpaper, s, true)
 	end
 end
-
-return set_wallpaper

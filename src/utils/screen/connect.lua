@@ -5,7 +5,7 @@ local settings = require "src.settings"
 
 local tasklist_buttons = require "src.bindings.tasklist_buttons"
 local taglist_buttons = require "src.bindings.taglist_buttons"
-local set_wallpaper = require "src.utils.set_wallpaper"
+local wallpaperize = require "src.utils.screen.wallpaperize"
 
 local widgets = {
 	textclock = wibox.widget.textclock(),
@@ -16,8 +16,8 @@ local function layoutinc(n)
 	return function () awful.layout.inc(n) end
 end
 
-local function connect(s)
-	set_wallpaper(s)
+return function(s)
+	wallpaperize(s)
 
 	awful.tag({"1"}, s, settings.default_layout)
 
@@ -48,5 +48,3 @@ local function connect(s)
 		},
 	}
 end
-
-return connect

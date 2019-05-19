@@ -1,8 +1,8 @@
 local gears = require "gears"
 local awful = require "awful"
 local gmath = require "gears.math"
-local createworkspace = require "src.utils.workspaces.create"
 
+local newtag = require "src.utils.screen.newtag"
 local modkey = require("src.settings").modkey
 
 local function infos(description)
@@ -72,10 +72,7 @@ local clientkeys = gears.table.join(
 	awful.key(
 		{modkey, "Shift"},
 		"KP_Add",
-		function(c)
-			local t = createworkspace(c.screen)
-			c:move_to_tag(t)
-		end,
+		function(c) c:move_to_tag(newtag(c.screen)) end,
 		infos("move client to a new tag", "client")
 	)
 )

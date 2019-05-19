@@ -31,7 +31,7 @@ awful.layout.layouts = {
 }
 
 menubar.utils.terminal = settings.terminal
-awful.screen.connect_for_each_screen(require("src.utils.connect_screen"))
+awful.screen.connect_for_each_screen(require("src.utils.screen.connect"))
 root.keys(require("src.bindings.global"))
 root.buttons(require("src.bindings.mouse"))
 awful.rules.rules = require "src.rules"

@@ -1,6 +1,6 @@
 local wibox = require "wibox"
 local awful = require "awful"
-local createworkspace = require "src.utils.workspaces.create"
+local newtag = require "src.utils.screen.newtag"
 
 return function(s)
 	local widget = wibox.widget {
@@ -13,7 +13,7 @@ return function(s)
 
 	widget:connect_signal("button::press", function(_, _, _, button)
 		if (button == 1) then
-			createworkspace(s)
+			newtag(s)
 		end
 	end)
 

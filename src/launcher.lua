@@ -18,7 +18,7 @@ module.mymainmenu = awful.menu({ items = {
 	{ "reload wallpaper", function()
 		local screen = awful.screen.focused()
 
-		require("src.utils.set_wallpaper")(screen)
+		require("src.utils.screen.wallpaperize")(screen)
 	end}
 }})
 
