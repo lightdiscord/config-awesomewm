@@ -19,12 +19,10 @@ local function prev(t)
 	awful.tag.viewprev(t.screen)
 end
 
-local taglist_buttons = gears.table.join(
+return gears.table.join(
 	awful.button({ }, 1, view),
 	awful.button({ require("src.settings").modkey }, 1, move),
 	awful.button({ }, 3, awful.tag.viewtoggle),
 	awful.button({ }, 4, next),
 	awful.button({ }, 5, prev)
 )
-
-return taglist_buttons

@@ -6,7 +6,7 @@ local awful = require "awful"
 local hotkeys_popup = require("awful.hotkeys_popup").widget
 local menubar = require "menubar"
 local settings = require "src.settings"
-local mymainmenu = require("src.launcher").mymainmenu
+local mainmenu = require("src.launcher")
 local createworkspace = require "src.utils.workspaces.create"
 
 local modkey = settings.modkey
@@ -22,7 +22,7 @@ local function focus(x)
 end
 
 -- Show menu
-local function show_menu() mymainmenu:show() end
+local function show_menu() mainmenu:show() end
 
 -- Swap applications indexes
 local function swap(x)
@@ -113,7 +113,7 @@ end
 
 -- ## Bindings
 
-local globalkeys = gears.table.join(
+return gears.table.join(
 	awful.key({ modkey }, "s", hotkeys_popup.show_help, infos("show help", "awesome")),
 	awful.key({ modkey }, "Left", awful.tag.viewprev, infos("view previous", "tag")),
 	awful.key({ modkey }, "Right", awful.tag.viewnext, infos("view next", "tag")),
@@ -157,5 +157,3 @@ local globalkeys = gears.table.join(
 	awful.key({ modkey }, "p", menubar.show, infos("show the menubar", "launcher")),
 	awful.key({ modkey, "Shift" }, "p", menubar.refresh, infos("show the menubar", "launcher"))
 )
-
-return globalkeys

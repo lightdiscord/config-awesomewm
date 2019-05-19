@@ -5,26 +5,22 @@ local settings = require "src.settings"
 local hotkeys_popup = require("awful.hotkeys_popup").widget
 local wibox = require "wibox"
 
-local module = {}
-
-module.myawesomemenu = {
+local awesomemenu = {
 	{ "hotkeys", function() return false, hotkeys_popup.show_help end},
 	{ "restart", awesome.restart },
 	{ "quit", function() awesome.quit() end}
 }
 
-module.mymainmenu = awful.menu({ items = {
-	{ "awesome", module.myawesomemenu },
-	{ "reload wallpaper", function()
-		local screen = awful.screen.focused()
+return awful.menu({
+	items = {
+		{ "awesome", awesomemenu },
+		{
+			"reload wallpaper",
+			function()
+				local screen = awful.screen.focused()
 
-		require("src.utils.screen.wallpaperize")(screen)
-	end}
-}})
-
-module.mylauncher = awful.widget.launcher({
-	image = beautiful.launcher_icon,
-	menu = module.mymainmenu,
+				require("src.utils.screen.wallpaperize")(screen)
+			end
+		}
+	}
 })
-
-return module

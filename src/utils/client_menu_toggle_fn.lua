@@ -1,6 +1,6 @@
 local awful = require "awful"
 
-local function client_menu_toggle_fn()
+return function()
 	local instance = nil
 
 	return function ()
@@ -16,5 +16,3 @@ local function client_menu_toggle_fn()
 		end
 	end
 end
-
-return client_menu_toggle_fn

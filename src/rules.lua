@@ -3,7 +3,7 @@ local awful = require "awful"
 local clientkeys = require "src.bindings.clientkeys"
 local clientbuttons = require "src.bindings.clientbuttons"
 
-local rules = {
+return {
 	{
 		rule = { },
 		properties = {
@@ -64,5 +64,3 @@ local rules = {
 		}
 	},
 }
-
-return rules

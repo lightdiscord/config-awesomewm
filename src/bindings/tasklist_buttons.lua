@@ -20,11 +20,9 @@ local function focus(x)
 	return function () awful.client.focus.byidx(x) end
 end
 
-local tasklist_buttons = gears.table.join(
+return gears.table.join(
 	awful.button({ }, 1, toggle),
 	awful.button({ }, 3, require("src.utils.client_menu_toggle_fn")()),
 	awful.button({ }, 4, focus(1)),
 	awful.button({ }, 5, focus(-1))
 )
-
-return tasklist_buttons
