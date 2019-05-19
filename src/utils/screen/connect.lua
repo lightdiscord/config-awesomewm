@@ -29,6 +29,8 @@ return function(s)
 		awful.button({ }, 5, layoutinc(-1))
 	))
 
+	s.mypromptbox = awful.widget.prompt()
+
 	local mywibox = awful.wibar({ position = "top", screen = s })
 	mywibox:setup {
 		layout = wibox.layout.align.horizontal,
@@ -36,7 +38,7 @@ return function(s)
 			layout = wibox.layout.fixed.horizontal,
 			awful.widget.taglist(s, awful.widget.taglist.filter.all, taglist_buttons),
 			require("src.widgets.screen.newtag")(s),
-			awful.widget.prompt(),
+			s.mypromptbox,
 		},
 		awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons),
 		{

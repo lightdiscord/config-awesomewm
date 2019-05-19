@@ -62,6 +62,8 @@ return {
 	fg_urgent = "#ffffff",
 	fg_minimize = "#ffffff",
 
+	titlebar_bg_focus = bg_normal,
+
 	useless_gap = dpi(0),
 	border_width = dpi(0),
 	border_normal = "#000000",
