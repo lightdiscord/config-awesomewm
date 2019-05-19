@@ -1,8 +1,8 @@
 local awful = require "awful"
 local wibox = require "wibox"
 local gears = require "gears"
+local settings = require "src.settings"
 
-local mylauncher = require("src.launcher").mylauncher
 local tasklist_buttons = require "src.bindings.tasklist_buttons"
 local taglist_buttons = require "src.bindings.taglist_buttons"
 local set_wallpaper = require "src.utils.set_wallpaper"
@@ -19,7 +19,7 @@ end
 local function connect(s)
 	set_wallpaper(s)
 
-	awful.tag({"1"}, s, awful.layout.layouts[1])
+	awful.tag({"1"}, s, settings.default_layout)
 
 	local mylayoutbox = awful.widget.layoutbox(s)
 	mylayoutbox:buttons(gears.table.join(

@@ -1,8 +1,12 @@
-local settings = {}
+local awful = require "awful"
 
-settings.modkey = "Mod1"
-settings.terminal = "kitty"
-settings.editor = os.getenv("EDITOR") or "nvim"
-settings.editor_cmd = settings.terminal .. " sh -c " .. settings.editor
+local terminal = "kitty"
+local editor = os.getenv("EDITOR") or "nvim"
 
-return settings
+return {
+	modkey = "Mod1",
+	terminal = terminal,
+	editor = editor,
+	editor_cmd = terminal .. " sh -c " .. editor,
+	default_layout = awful.layout.suit.tile,
+}
