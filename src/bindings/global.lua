@@ -6,8 +6,8 @@ local awful = require "awful"
 local hotkeys_popup = require("awful.hotkeys_popup").widget
 local menubar = require "menubar"
 local settings = require "src.settings"
-local mainmenu = require("src.launcher")
-local createworkspace = require "src.utils.workspaces.create"
+local mainmenu = require "src.launcher"
+local newtag = require "src.utils.screen.newtag"
 
 local modkey = settings.modkey
 
@@ -126,7 +126,7 @@ return gears.table.join(
 	awful.key(
 		{ modkey }, "KP_Add",
 		function()
-			createworkspace(awful.screen.focused())
+			newtag(awful.screen.focused())
 		end,
 		infos("create a new workspace", "screen")
 	),
