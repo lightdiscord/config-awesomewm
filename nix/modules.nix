@@ -1,6 +1,5 @@
-{ pkgs, ... }:
+{ luaPackages }:
 
-with pkgs.luaPackages; [
+with luaPackages; [
 	lfs
-	luasocket
 ]

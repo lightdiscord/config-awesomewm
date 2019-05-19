@@ -10,7 +10,7 @@ let
 	lines = lib.concatStringsSep "\n";
 	link = orientation: wallpaper: "ln -s ${wallpaper} $out/themes/default/wallpapers/${orientation}";
 
-	src = lib.sourceFilesBySuffices ../. ["lua" "png"];
+	src = lib.sourceFilesBySuffices ../. ["lua" "png" "svg"];
 
 in stdenv.mkDerivation {
 	name = "awesome-config";

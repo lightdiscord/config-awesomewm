@@ -3,6 +3,6 @@
 {
 	services.xserver.windowManager.awesome = {
 		enable = config.services.xserver.enable;
-		luaModules = import ./modules.nix { inherit pkgs; };
+		luaModules = import ./modules.nix { inherit (pkgs) luaPackages; };
 	};
 }

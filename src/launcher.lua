@@ -1,7 +1,9 @@
 local awful = require "awful"
 local beautiful = require "beautiful"
+local gcolor = require "gears.color"
 local settings = require "src.settings"
 local hotkeys_popup = require("awful.hotkeys_popup").widget
+local wibox = require "wibox"
 
 local module = {}
 
@@ -21,8 +23,8 @@ module.mymainmenu = awful.menu({ items = {
 }})
 
 module.mylauncher = awful.widget.launcher({
-	image = beautiful.awesome_icon,
-	menu = module.mymainmenu
+	image = beautiful.launcher_icon,
+	menu = module.mymainmenu,
 })
 
 return module

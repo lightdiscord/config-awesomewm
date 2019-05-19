@@ -5,6 +5,7 @@ local theme_assets = require "beautiful.theme_assets"
 local xresources = require "beautiful.xresources"
 local awful = require "awful"
 local gfs = require "gears.filesystem"
+local gcolor = require "gears.color"
 
 local dpi = xresources.apply_dpi
 
@@ -17,11 +18,11 @@ local theme = {}
 theme.font          = "sans 10"
 
 local bg_normal     = "#000000A6"
-local bg_focus      = "#000000CC"
+local bg_focus      = "#0D47A1CC"
 
 theme.bg_normal     = bg_normal
-theme.bg_focus      = bg_normal
-theme.bg_urgent     = "#b71c1c"
+theme.bg_focus      = bg_focus
+theme.bg_urgent     = "#B71C1CCC"
 theme.bg_minimize   = bg_normal
 theme.bg_systray    = bg_normal
 
@@ -39,10 +40,11 @@ theme.border_normal = "#000000"
 theme.border_focus  = "#535d6c"
 theme.border_marked = "#91231c"
 
-theme.hotkeys_bg = bg_focus
+theme.hotkeys_bg = bg_normal
 theme.hotkeys_fg = "#FAFAFA"
-theme.hotkeys_label_bg = theme.hotkeys_fg
-theme.hotkeys_label_fg = theme.hotkeys_bg
+theme.hotkeys_label_bg = theme.hotkeys_bg
+theme.hotkeys_label_fg = theme.hotkeys_fg
+theme.hotkeys_modifiers_fg = "#E0E0E0"
 theme.hotkeys_group_margin = dpi(25)
 theme.hotkeys_font = "sans 10"
 theme.hotkeys_description_font = "sans 8"
@@ -96,6 +98,7 @@ local function fetchFiles(folder)
   return arr
 end
 
+-- TODO: With awesome v4.4, use gears.filesystem.get_random_file_from_dir
 theme.wallpaper = function(screen)
 	local orientation = screen.geometry.width > screen.geometry.height
 		and "landscape"

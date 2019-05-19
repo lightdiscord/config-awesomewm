@@ -7,4 +7,4 @@ let
 		" --search ${getLuaPath path "share"}" +
     " --search ${getLuaPath path "lib"}"
 	);
-in makeSearchPath (import ./modules.nix { pkgs = nixpkgs; })
+in makeSearchPath (import ./modules.nix { inherit (nixpkgs) luaPackages; })

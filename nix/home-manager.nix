@@ -9,6 +9,6 @@ in {
 	config = mkIf (awesome && xsession) {
 		home.file.".config/awesome".source = import ./configuration.nix;
 
-		xsession.windowManager.awesome.luaModules = import ./modules.nix { inherit pkgs; };
+		xsession.windowManager.awesome.luaModules = import ./modules.nix { inherit (pkgs) luaPackages; };
 	};
 }
