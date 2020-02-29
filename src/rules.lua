@@ -14,37 +14,18 @@ return {
 			keys = clientkeys,
 			buttons = clientbuttons,
 			screen = awful.screen.preferred,
-			placement = awful.placement.no_overlap + awful.placement.no_offscreen
-		}
+			placement = awful.placement.no_overlap + awful.placement.no_offscreen,
+			maximized = false,
+			maximized_vertical = false,
+			maximized_horizontal = false
+		},
 	},
 
 	{
 		rule_any = {
-			instance = {
-				"DTA",
-				"copyq",
-			},
-
 			class = {
-				"Arandr",
-				"Gpick",
-				"Kruler",
-				"MessageWin",
-				"Sxiv",
-				"Wpa_gui",
 				"pinentry",
-				"veromix",
-				"xtightvncviewer"
 			},
-
-			name = {
-				"Event Tester",
-			},
-
-			role = {
-				"AlarmWindow",
-				"pop-up",
-			}
 		},
 
 		properties = {

@@ -7,6 +7,6 @@ return {
 	modkey = "Mod1",
 	terminal = terminal,
 	editor = editor,
-	editor_cmd = terminal .. " sh -c " .. editor,
-	default_layout = awful.layout.suit.tile,
+	editor_cmd = terminal .. " -e " .. editor,
+	default_layout = awful.layout.suit.spiral.dwindle,
 }
