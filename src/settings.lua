@@ -1,6 +1,6 @@
 local awful = require "awful"
 
-local terminal = "kitty"
+local terminal = "alacritty"
 local editor = os.getenv("EDITOR") or "nvim"
 
 return {

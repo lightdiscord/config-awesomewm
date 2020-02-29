@@ -1,6 +1,5 @@
+{ callPackage }:
+
 {
-	home-manager = ./nix/home-manager.nix;
-	nixos = ./nix/nixos.nix;
-	wallpapers = ./nix/wallpapers.nix;
-	modules = ./nix/modules.nix;
+	files.".config/awesome" = callPackage ./nix/configuration.nix { };
 }

@@ -1,31 +1,21 @@
+{ stdenv, fetchurl, lib, linkFarm, symlinkJoin }:
+
+with lib;
+
 let
-	dependencies = {
-		nixpkgs = import ./dependencies/nixpkgs.nix { };
+	config = sourceFilesBySuffices ../. ["lua" "png" "svg"];
+
+	registerWallpaper = directory: { name, ... }@path: {
+		name = "themes/default/wallpapers/${directory}/${name}";
+		inherit path;
 	};
 
-	inherit (dependencies.nixpkgs) stdenv fetchurl lib;
+	mappedWallpapers = mapAttrsToList
+		(directory: map (registerWallpaper directory))
+		(import ./wallpapers.nix { inherit fetchurl; });
 
-	wallpapers = import ./wallpapers.nix;
-
-	lines = lib.concatStringsSep "\n";
-	link = orientation: wallpaper: "ln -s ${wallpaper} $out/themes/default/wallpapers/${orientation}";
-
-	src = lib.sourceFilesBySuffices ../. ["lua" "png" "svg"];
-
-in stdenv.mkDerivation {
-	name = "awesome-config";
-
-	installPhase = ''
-		mkdir -p $out
-
-		cp -ra $src/. $out
-		chmod -R u+w $out
-
-		mkdir -p $out/themes/default/wallpapers/{landscape,portrait}
-
-		${ lines (map (link "landscape") wallpapers.landscape) }
-		${ lines (map (link "portrait") wallpapers.portrait) }
-	'';
-
-	inherit src;
+	wallpapers = linkFarm "wallpapers" (flatten mappedWallpapers);
+in symlinkJoin {
+	name = "awesomewm-config";
+	paths = [ config wallpapers ];
 }

@@ -1,6 +1,6 @@
-let
-	inherit (builtins) fetchurl;
-in {
+{ fetchurl }:
+
+{
 	landscape = map fetchurl [
 		{
 			url = https://i.imgur.com/vhF3QX9.png;
