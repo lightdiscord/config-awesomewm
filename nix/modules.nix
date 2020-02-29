@@ -1,5 +1,0 @@
-{ luaPackages }:
-
-with luaPackages; [
-	lfs
-]

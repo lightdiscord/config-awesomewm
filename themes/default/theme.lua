@@ -6,6 +6,10 @@ local xresources = require "beautiful.xresources"
 local awful = require "awful"
 local gfs = require "gears.filesystem"
 local gcolor = require "gears.color"
+local gstring = require "gears.string"
+
+local filter = require "lib.fun.filter"
+local collect = require "lib.fun.collect"
 
 local dpi = xresources.apply_dpi
 local themes_path = gfs.get_configuration_dir() .. "themes/default/"
@@ -21,32 +25,23 @@ local size = dpi(4)
 local menu_height = dpi(25)
 
 local function fetchFiles(folder)
-	local arr = {}
-
-  for v in lfs.dir(folder) do
-		if v ~= "." and v ~= ".." and v ~= "readme.md" then
-			arr[#arr + 1] = v
-		end
+	local function predicate(filename)
+		return gstring.endswith(filename, ".png") or gstring.endswith(filename, ".jpg")
 	end
 
-  return arr
+	return collect(filter(predicate)(lfs.dir(folder)))
 end
 
--- TODO: With awesome v4.4, use gears.filesystem.get_random_file_from_dir
+-- TODO(v4.4): use gears.filesystem.get_random_file_from_dir
 local function wallpaper(screen)
 	local orientation = screen.geometry.width > screen.geometry.height
 		and "landscape"
 		or "portrait"
 
 	local path = themes_path .. "wallpapers/" .. orientation .. "/"
-
 	local files = fetchFiles(path)
 
-	if #files == 0 then
-		return nil
-	else
-		return path .. files[math.random(#files)]
-	end
+	return #files > 0 and path .. files[math.random(#files)] or nil
 end
 
 return {
