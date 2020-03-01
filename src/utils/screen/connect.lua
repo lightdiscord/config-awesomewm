@@ -19,7 +19,7 @@ end
 return function(s)
 	wallpaperize(s)
 
-	awful.tag({"1"}, s, settings.default_layout)
+	awful.tag({"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}, s, settings.default_layout)
 
 	local mylayoutbox = awful.widget.layoutbox(s)
 	mylayoutbox:buttons(gears.table.join(
@@ -36,11 +36,14 @@ return function(s)
 		layout = wibox.layout.align.horizontal,
 		{
 			layout = wibox.layout.fixed.horizontal,
-			awful.widget.taglist(s, awful.widget.taglist.filter.all, taglist_buttons),
-			require("src.widgets.screen.newtag")(s),
-			s.mypromptbox,
+			awful.widget.taglist {
+				screen = s,
+				filter = awful.widget.taglist.filter.all,
+				buttons = taglist_buttons
+			}
 		},
-		awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons),
+		{ layout = wibox.layout.flex.horizontal },
+		-- awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons),
 		{
 			layout = wibox.layout.fixed.horizontal,
 			widgets.keyboardlayout,

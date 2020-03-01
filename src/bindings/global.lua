@@ -111,9 +111,22 @@ local function toggle_client_tag(i)
 	end
 end
 
+local tag_bindings = gears.table.join();
+
+for i = 1, 10 do
+	tag_bindings = gears.table.join(
+		tag_bindings,
+
+		awful.key({ modkey }, "#" .. i + 9, view_tag(i), infos("view tag #" .. i, "tag")),
+		awful.key({ modkey, "Shift" }, "#" .. i + 9, move_to_tag(i), infos("move focused client to tag #" .. i, "tag"))
+	)
+end
+
 -- ## Bindings
 
 return gears.table.join(
+	tag_bindings,
+
 	awful.key({ modkey }, "s", hotkeys_popup.show_help, infos("show help", "awesome")),
 	awful.key({ modkey }, "Left", awful.tag.viewprev, infos("view previous", "tag")),
 	awful.key({ modkey }, "Right", awful.tag.viewnext, infos("view next", "tag")),
@@ -147,13 +160,9 @@ return gears.table.join(
 	awful.key({ modkey, "Control" }, "r", awesome.restart, infos("reload awesome", "awesome")),
 	awful.key({ "Mod1", "Control" }, "Delete", awesome.quit, infos("quit awesome", "awesome")),
 
-	awful.key({ modkey }, "space", layout(1), infos("select next", "layout")),
-	awful.key({ modkey, "Shift" }, "space", layout(-1), infos("select previous", "layout")),
-
 	awful.key({ modkey, "Control" }, "n", restore_minimized, infos("restore minimized", "client")),
 
 	-- Prompt
-	awful.key({ modkey }, "r", run_prompt, infos("run prompt", "launcher")),
-	awful.key({ modkey }, "p", menubar.show, infos("show the menubar", "launcher")),
-	awful.key({ modkey, "Shift" }, "p", menubar.refresh, infos("show the menubar", "launcher"))
+	awful.key({ modkey }, "space", menubar.show, infos("show the menubar", "launcher"))
+	-- awful.key({ modkey, "Shift" }, "p", menubar.refresh, infos("show the menubar", "launcher"))
 )
