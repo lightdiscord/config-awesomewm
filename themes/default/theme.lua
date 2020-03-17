@@ -77,7 +77,10 @@ return {
 	taglist_squares_sel = theme_assets.taglist_squares_sel(size, fg_normal),
 	taglist_squares_unsel = theme_assets.taglist_squares_unsel(size, fg_normal),
 
-	notification_icon_size = dpi(200),
+	notification_max_width = dpi(600),
+	notification_max_height = dpi(100),
+
+	notification_icon_size = dpi(100),
 
 	menu_submenu_icon = themes_path .. "submenu.png",
 	menu_height = menu_height,
