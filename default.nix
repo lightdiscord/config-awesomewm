@@ -1,5 +1,5 @@
-{ callPackage }:
+{ pkgs, ... }:
 
 {
-	files.".config/awesome" = callPackage ./nix/configuration.nix { };
+	home.file.".config/awesome".source = pkgs.callPackage ./nix/configuration.nix { };
 }
