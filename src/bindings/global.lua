@@ -127,6 +127,15 @@ end
 return gears.table.join(
 	tag_bindings,
 
+	-- Audio
+	awful.key({ }, "XF86AudioMute", spawn("amixer set Master toggle"), infos("(un)mute master volume", "audio")),
+	awful.key({ }, "XF86AudioRaiseVolume", spawn("amixer set Master 5%+"), infos("raise master volume", "audio")),
+	awful.key({ }, "XF86AudioLowerVolume", spawn("amixer set Master 5%-"), infos("lower master volume", "audio")),
+
+	-- Brightness
+	awful.key({ }, "XF86MonBrightnessUp", spawn("light -A 5"), infos("increase brightness", "brightness")),
+	awful.key({ }, "XF86MonBrightnessDown", spawn("light -U 5"), infos("decrease brightness", "brightness")),
+
 	awful.key({ modkey }, "s", hotkeys_popup.show_help, infos("show help", "awesome")),
 	awful.key({ modkey }, "Left", awful.tag.viewprev, infos("view previous", "tag")),
 	awful.key({ modkey }, "Right", awful.tag.viewnext, infos("view next", "tag")),
@@ -136,29 +145,18 @@ return gears.table.join(
 	awful.key({ modkey }, "k", focus(-1), infos("focus previous by index", "client")),
 
 	awful.key({ modkey }, "w", show_menu, infos("show main menu", "awesome")),
-	awful.key(
-		{ modkey }, "KP_Add",
-		function()
-			newtag(awful.screen.focused())
-		end,
-		infos("create a new workspace", "screen")
-	),
 
 	-- Layout manipulation
-	awful.key({ modkey, "Shift" }, "j", swap(1), infos("swap with next client by index", "client")),
-	awful.key({ modkey, "Shift" }, "k", swap(-1), infos("swap with previous client by index", "client")),
+	awful.key({ modkey, "Shift" }, "Left", swap(1), infos("swap with next client by index", "client")),
+	awful.key({ modkey, "Shift" }, "Right", swap(-1), infos("swap with previous client by index", "client")),
 
-	awful.key({ modkey, "Control" }, "j", focus_relative(1), infos("focus the next screen", "screen")),
-	awful.key({ modkey, "Control" }, "k", focus_relative(-1), infos("focus the previous screen", "screen")),
+	awful.key({ modkey, "Control" }, "Left", focus_relative(1), infos("focus the next screen", "screen")),
+	awful.key({ modkey, "Control" }, "Right", focus_relative(-1), infos("focus the previous screen", "screen")),
 
-	awful.key({ modkey }, "u", awful.client.urgent.jumpto, infos("jump to urgent client", "client")),
 	awful.key({ modkey }, "Tab", last_focused, infos("go back", "client")),
 
 	-- Standard program
 	awful.key({ modkey }, "Return", spawn(settings.terminal), infos("open a terminal", "launcher")),
-
-	awful.key({ modkey, "Control" }, "r", awesome.restart, infos("reload awesome", "awesome")),
-	awful.key({ "Mod1", "Control" }, "Delete", awesome.quit, infos("quit awesome", "awesome")),
 
 	awful.key({ modkey, "Control" }, "n", restore_minimized, infos("restore minimized", "client")),
 
