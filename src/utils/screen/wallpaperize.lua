@@ -11,6 +11,6 @@ return function (s)
 	end
 
 	if wallpaper ~= nil then
-		gears.wallpaper.maximized(wallpaper, s, true)
+		gears.wallpaper.maximized(wallpaper, s, false)
 	end
 end
