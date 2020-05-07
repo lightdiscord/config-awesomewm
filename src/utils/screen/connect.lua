@@ -9,7 +9,7 @@ local wallpaperize = require "src.utils.screen.wallpaperize"
 
 local widgets = {
 	textclock = wibox.widget.textclock(),
-	keyboardlayout = awful.widget.keyboardlayout()
+	keyboardlayout = awful.widget.keyboardlayout(),
 }
 
 local function layoutinc(n)
@@ -40,10 +40,27 @@ return function(s)
 				screen = s,
 				filter = awful.widget.taglist.filter.all,
 				buttons = taglist_buttons
+			},
+			awful.widget.tasklist {
+				screen = s,
+				filter = awful.widget.tasklist.filter.currenttags,
+				buttons = tasklist_buttons,
+				widget_template = {
+					{
+						{
+							id = "icon_role",
+							widget = wibox.widget.imagebox
+						},
+						left = 5,
+						right = 5,
+						widget = wibox.container.margin
+					},
+					id = "background_role",
+					widget = wibox.container.background
+				}
 			}
 		},
 		{ layout = wibox.layout.flex.horizontal },
-		-- awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons),
 		{
 			layout = wibox.layout.fixed.horizontal,
 			widgets.keyboardlayout,
