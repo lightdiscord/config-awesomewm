@@ -67,11 +67,5 @@ return gears.table.join(
 	awful.key({modkey}, "n", minimize, infos("minimize")),
 	awful.key({modkey}, "m", toggle_maximize(true, true), infos("(un)maximize")),
 	awful.key({modkey, "Shift"}, "Left", move_to_relative_tag(-1), infos("move client to previous tag", "tag")),
-	awful.key({modkey, "Shift"}, "Right", move_to_relative_tag(1), infos("move client to next tag", "tag")),
-	awful.key(
-		{modkey, "Shift"},
-		"KP_Add",
-		function(c) c:move_to_tag(newtag(c.screen)) end,
-		infos("move client to a new tag", "client")
-	)
+	awful.key({modkey, "Shift"}, "Right", move_to_relative_tag(1), infos("move client to next tag", "tag"))
 )
