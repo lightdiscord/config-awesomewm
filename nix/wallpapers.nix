@@ -52,6 +52,31 @@
 			url = "https://cdnb.artstation.com/p/assets/images/images/009/074/825/4k/andreas-rocha-peaceofmind01.jpg?1516978582";
 			sha256 = "0mpgjrp6hzldvazjl0wsl7q6l7prhbckl46mmr17gwzwmknv8w6a";
 		}
+		{
+			name = "tuomas-korpi-meadow-final-01.jpg";
+			url = "https://cdnb.artstation.com/p/assets/images/images/024/806/979/large/tuomas-korpi-meadow-final-01.jpg?1583600973";
+			sha256 = "0n5hjsf2byhf7z94mkgm9rl1m9fnr8c8lhy0yrh171ihaanfwi1s";
+		}
+		{
+			name = "philipp-a-urlich-cpncept187c.jpg";
+			url = "https://cdna.artstation.com/p/assets/images/images/027/757/324/large/philipp-a-urlich-cpncept187c.jpg?1592464084";
+			sha256 = "1wlb604w5y93a9drfl60z2dv3w619kl4clby2ibgvdis6msghj88";
+		}
+		{
+			name = "heng-sun-.jpg";
+			url = "https://cdnb.artstation.com/p/assets/images/images/028/648/975/large/heng-sun-.jpg?1595085232";
+			sha256 = "1wxrzzdigyk8ra8l5q6i5a0bx0b0r6wa4bm56dbd574ikmg839zf";
+		}
+		{
+			name = "scribble-px-studios-28.jpg";
+			url = "https://cdna.artstation.com/p/assets/images/images/027/952/136/large/scribble-px-studios-28.jpg?1593047989";
+			sha256 = "0ppv46qd1dmgjvbz60slldhjd2798k6pwnb4qjgadx15q35hv6c4";
+		}
+		{
+			name = "yuliya-zabelina-web.jpg";
+			url = "https://cdnb.artstation.com/p/assets/images/images/027/476/817/large/yuliya-zabelina-web.jpg?1591649247";
+			sha256 = "1b33liv52wg410xhpdnnfqdyg3qnvziz0wqf8jgws31lg6kp0pv5";
+		}
 	];
 
 	portrait = map fetchurl [
