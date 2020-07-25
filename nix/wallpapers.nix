@@ -77,6 +77,36 @@
 			url = "https://cdnb.artstation.com/p/assets/images/images/027/476/817/large/yuliya-zabelina-web.jpg?1591649247";
 			sha256 = "1b33liv52wg410xhpdnnfqdyg3qnvziz0wqf8jgws31lg6kp0pv5";
 		}
+		{
+			name = "kill-la-kill-ryuko-matoi-yelling-anime-7063.png";
+			url = "https://www.wallpapermaiden.com/image/2016/10/06/kill-la-kill-ryuko-matoi-yelling-anime-7063.png";
+			sha256 = "0f3dkkxf0823ilcmzmm20si8931w003iznmqjkz23g02bylj5m22";
+		}
+		{
+			name = "839531.png";
+			url = "https://images2.alphacoders.com/839/839531.png";
+			sha256 = "0h95c4nnsnbwjf1467mvm8gjxp3yzivd1fxmp1fa46lsvz6fxzql";
+		}
+		{
+			name = "585188.png";
+			url = "https://images2.alphacoders.com/585/585188.png";
+			sha256 = "10yhqwjp3qbpmysk2dg11snif9hbbw44jr5rlx20agf5y802xf72";
+		}
+		{
+			name = "744902.jpg";
+			url = "https://images4.alphacoders.com/744/744902.jpg";
+			sha256 = "0w0rixz7l31idc33nvkzw3wcb58kadvfdjp2h450d69yll10bzrl";
+		}
+		{
+			name = "838103.jpg";
+			url = "https://images2.alphacoders.com/838/838103.jpg";
+			sha256 = "08ibkdc5amlncv4pshz3i3g5l3b75d6f81srn4jk0g0725yplvrx";
+		}
+		{
+			name = "712589.png";
+			url = "https://images.alphacoders.com/712/712589.png";
+			sha256 = "0nn8kms7890rli4flb9rd74fs7jxxgxghhmfi1sfpv2niid95zyq";
+		}
 	];
 
 	portrait = map fetchurl [
