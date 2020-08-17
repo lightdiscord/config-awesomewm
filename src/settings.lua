@@ -8,5 +8,5 @@ return {
 	terminal = terminal,
 	editor = editor,
 	editor_cmd = terminal .. " -e " .. editor,
-	default_layout = awful.layout.suit.spiral.dwindle,
+	default_layout = awful.layout.suit.tile,
 }

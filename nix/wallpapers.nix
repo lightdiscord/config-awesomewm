@@ -8,19 +8,9 @@
 			sha256 = "1bsvi2h7005vazd43z09j4ig8ncifmsq4qkzxvvr0cdx63mbpb9p";
 		}
 		{
-			name = "alena-aenami-endless-1k.jpg";
-			url = "https://cdnb.artstation.com/p/assets/images/images/014/327/751/large/alena-aenami-endless-1k.jpg?1543505168";
-			sha256 = "1wnaxvya2gybgji32hjlxjyq4nk2iknri1vqnjfjssvccn6dmzbx";
-		}
-		{
 			name = "alena-aenami-cold-1k.jpg";
 			url = "https://cdnb.artstation.com/p/assets/images/images/012/298/143/large/alena-aenami-cold-1k.jpg?1534082874";
 			sha256 = "0x7wn0rrzmdzz89zhnmax344rz2xg71hq2apx01d6d5z9rnlmrqp";
-		}
-		{
-			name = "alena-aenami-lines1k.jpg";
-			url = "https://cdna.artstation.com/p/assets/images/images/009/970/322/large/alena-aenami-lines1k.jpg?1521834310";
-			sha256 = "05mg37s0m8dvk65fp356w9pjym53a5r3b54nv2ghsw4ydy8r5fmj";
 		}
 		{
 			name = "alena-aenami-sundown.jpg";
@@ -41,11 +31,6 @@
 			name = "andreas-rocha-lostruiniii-01.jpg";
 			url = "https://cdnb.artstation.com/p/assets/images/images/026/109/435/4k/andreas-rocha-lostruiniii-01.jpg?1587911470";
 			sha256 = "1pk0rs12qzafvibwrd72hzyxrm7z1hnyal4wqflz80q3i41gpsq9";
-		}
-		{
-			name = "guillaume-verdier-monument-01.jpg";
-			url = "https://cdna.artstation.com/p/assets/images/images/026/215/508/4k/guillaume-verdier-monument-01.jpg?1588189246";
-			sha256 = "0kpqngijcdgbzzldrv4pkkkm87brs4z54xb536iijz149n9k1as0";
 		}
 		{
 			name = "andread-rocha-peaceofmind01.jpg";
@@ -78,34 +63,36 @@
 			sha256 = "1b33liv52wg410xhpdnnfqdyg3qnvziz0wqf8jgws31lg6kp0pv5";
 		}
 		{
-			name = "kill-la-kill-ryuko-matoi-yelling-anime-7063.png";
 			url = "https://www.wallpapermaiden.com/image/2016/10/06/kill-la-kill-ryuko-matoi-yelling-anime-7063.png";
 			sha256 = "0f3dkkxf0823ilcmzmm20si8931w003iznmqjkz23g02bylj5m22";
 		}
 		{
-			name = "839531.png";
 			url = "https://images2.alphacoders.com/839/839531.png";
 			sha256 = "0h95c4nnsnbwjf1467mvm8gjxp3yzivd1fxmp1fa46lsvz6fxzql";
 		}
 		{
-			name = "585188.png";
 			url = "https://images2.alphacoders.com/585/585188.png";
 			sha256 = "10yhqwjp3qbpmysk2dg11snif9hbbw44jr5rlx20agf5y802xf72";
 		}
 		{
-			name = "744902.jpg";
 			url = "https://images4.alphacoders.com/744/744902.jpg";
 			sha256 = "0w0rixz7l31idc33nvkzw3wcb58kadvfdjp2h450d69yll10bzrl";
 		}
 		{
-			name = "838103.jpg";
 			url = "https://images2.alphacoders.com/838/838103.jpg";
 			sha256 = "08ibkdc5amlncv4pshz3i3g5l3b75d6f81srn4jk0g0725yplvrx";
 		}
 		{
-			name = "712589.png";
 			url = "https://images.alphacoders.com/712/712589.png";
 			sha256 = "0nn8kms7890rli4flb9rd74fs7jxxgxghhmfi1sfpv2niid95zyq";
+		}
+		{
+			url = "https://images7.alphacoders.com/786/786077.png";
+			sha256 = "0a3bal00x0pfs9hxksj2ahrk95mhrw92nbn7k86xfv3nb91yfd2l";
+		}
+		{
+			url = "https://wallpapercave.com/wp/wp1859958.jpg";
+			sha256 = "0677wrzkxliwmzd5ypnhknw1p07psznc9w4vapy6nw364qfvzkv0";
 		}
 	];
 
