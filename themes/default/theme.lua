@@ -15,6 +15,7 @@ local dpi = xresources.apply_dpi
 local themes_path = gfs.get_configuration_dir() .. "themes/default/"
 local layout_path = themes_path .. "layouts/"
 local titlebar_path = themes_path .. "titlebar/"
+local icons_path = themes_path .. "icons/"
 local bg_normal = "#000000A6"
 local bg_focus = "#0D47A1CC"
 local fg_normal = "#ffffff"
@@ -116,6 +117,10 @@ return {
 	layout_max = layout_path .. "maxw.png",
 	layout_magnifier = layout_path .. "magnifierw.png",
 	layout_fullscreen = layout_path .. "fullscreenw.png",
+
+	icon_clock = icons_path .. "clock-regular.svg",
+	icon_calendar = icons_path .. "calendar-alt-regular.svg",
+	icon_keyboard = icons_path .. "keyboard-regular.svg",
 
 	awesome_icon = theme_assets.awesome_icon(menu_height, bg_focus, fg_focus),
 	icon_theme = nil,

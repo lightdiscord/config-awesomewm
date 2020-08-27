@@ -1,4 +1,5 @@
 local awful = require "awful"
+local beautiful = require "beautiful"
 local wibox = require "wibox"
 local gears = require "gears"
 local settings = require "src.settings"
@@ -6,11 +7,6 @@ local settings = require "src.settings"
 local tasklist_buttons = require "src.bindings.tasklist_buttons"
 local taglist_buttons = require "src.bindings.taglist_buttons"
 local wallpaperize = require "src.utils.screen.wallpaperize"
-
-local widgets = {
-	textclock = wibox.widget.textclock(),
-	keyboardlayout = awful.widget.keyboardlayout(),
-}
 
 local function layoutinc(n)
 	return function () awful.layout.inc(n) end
@@ -63,9 +59,22 @@ return function(s)
 		{ layout = wibox.layout.flex.horizontal },
 		{
 			layout = wibox.layout.fixed.horizontal,
-			widgets.keyboardlayout,
 			wibox.widget.systray(),
-			widgets.textclock,
+			{
+				layout = wibox.layout.fixed.horizontal,
+				wibox.container.margin(wibox.widget.imagebox(beautiful.icon_keyboard), 5, 5, 5, 5),
+				awful.widget.keyboardlayout()
+			},
+			{
+				layout = wibox.layout.fixed.horizontal,
+				wibox.container.margin(wibox.widget.imagebox(beautiful.icon_calendar), 5, 5, 5, 5),
+				wibox.widget.textclock("%d.%m.%Y")
+			},
+			{
+				layout = wibox.layout.fixed.horizontal,
+				wibox.container.margin(wibox.widget.imagebox(beautiful.icon_clock), 5, 5, 5, 5),
+				wibox.widget.textclock("%H:%M")
+			},
 			mylayoutbox,
 		},
 	}
